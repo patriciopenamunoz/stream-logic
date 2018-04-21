@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stream Logic</title>
+    <link rel="stylesheet" href="./lib/css/app.css">
+  </head>
+  <body>
+    <div id="image-diplayer">
+      <input
+        id="folder_selector"
+        type="file"
+        @change="changeFolder($event)"
+        style="display:none;"
+        webkitdirectory directory multiple
+      />
+      <div id="list">
+        <div
+          class="image-selector"
+          v-for='(image, index) in images'
+          v-bind:class="{'selected': selected_image == image}">
+          <div
+            :style='getBackgroundImage(index)'
+            v-on:click='selectImage(index)'
+            @mouseover="hovered_image = image"
+            @mouseleave="hovered_image = null"></div>
+        </div>
+      </div>
+
+      <div id="panel">
+        <div class="title">
+
+        </div>
+        <div class="visor">
+          <img :src="selected_image" alt="">
+        </div>
+        <div class="controls">
+            {{text_content.image_displayer.copy_url}}
+          <div class="separator"></div>
+          <div class="one-line">
+            <div class="url">
+              http://localhost:8349/live
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="one-line">
+            <div class="button"
+            onClick='document.getElementById("folder_selector").click();'>
+              {{text_content.image_displayer.change_folder_button}}
+            </div>
+            <div class="url margin-left" v-if="images_folder === null">
+              {{text_content.image_displayer.no_folder_selected}}
+            </div>
+            <div class="url margin-left" v-else>
+              {{images_folder}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer_bar">
+        <div class="left">
+          <span v-if="hovered_image === null">
+            --
+          </span>
+          <span v-else>
+            {{hovered_image}}
+          </span>
+        </div>
+        <div class="right">
+          {{text_content.image_displayer.selected_image}}:
+          <span v-if="selected_image === null">
+            {{text_content.image_displayer.none}}
+          </span>
+          <span class="right" v-else>
+            {{selected_image}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script src='./lib/initialize.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='./lib/app.js'></script>
+    <script src='./server/server.js'></script>
+  </body>
+</html>

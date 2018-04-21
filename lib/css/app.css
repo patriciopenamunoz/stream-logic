@@ -1,0 +1,141 @@
+html,body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(30, 30, 30);
+  color: #d2d2d2;
+  font-family:arial;
+}
+
+#image-diplayer{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#list{
+  display: inline-block;
+  vertical-align:top;
+  width: 737px;
+  height: calc(100% - 30px);
+  overflow-y: scroll;
+}
+
+#panel{
+  display: inline-block;
+  vertical-align:top;
+  width: 710px;
+  height: calc(100% - 30px);
+  float: right;
+  margin-right: 20px;
+  background-color: rgb(50, 50, 50);
+}
+
+#panel .visor>img{
+  width: 710px;
+  height: 399.38px;
+  background-color: rgb(240, 240, 230);
+}
+
+#panel .title{
+  width: 710px;
+  height: 20px;
+}
+
+#panel .controls{
+  margin: 15px;
+}
+#panel .separator{
+  margin-top: 10px;
+}
+#panel .separator-large{
+  margin-top: 20px;
+}
+#panel .url{
+  padding: 8px;
+  font-family: monospace;
+  background-color: rgb(10, 10, 10);
+  border-radius: 5px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#panel .button{
+  padding: 5px 8px;
+  white-space: nowrap;
+  background-color: #675555;
+  border: #332b2b;
+  border-style: solid;
+  font-size: small;
+  border-width: 2px;
+  cursor: pointer;
+  user-select: none;
+}
+#panel .button:hover{
+  background-color: #856d6d;
+}
+
+.one-line{
+  display: inline-flex;
+  width: 100%;
+}
+
+#panel .margin-left{
+  margin-left: 10px;
+}
+
+#list:hover .image-selector{
+  filter: grayscale(100%) brightness(40%);
+}
+
+#footer_bar{
+  background-color: rgb(10, 10, 10);
+  height: 30px;
+  padding: 0;
+  display: inline-flex;
+}
+#footer_bar>.left,#footer_bar>.right{
+  padding: 0 10px;
+  line-height: 30px;
+  height: 100%;
+  font-size: x-small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#footer_bar>.left{
+  width: 725px;
+}
+#footer_bar>.right{
+  width: 719px;
+}
+
+.image-selector:hover,.image-selector.selected{
+  filter: grayscale(0%) brightness(100%) !important;
+}
+.image-selector{
+  cursor: pointer;
+  display: inline-flex;
+  transition: filter 0.5s;
+  vertical-align:top;
+  margin:0;
+  padding:0;
+  background-color: rgb(240, 240, 230);
+}
+
+.image-selector.selected div{
+  filter: opacity(50%);
+
+}
+.image-selector.selected{
+  background-color: rgb(90, 200, 255);
+}
+.image-selector div{
+  height: 135px;
+  width: 240px;
+  margin: 0;
+  padding: 0;
+  background-size:100% 100%;
+}

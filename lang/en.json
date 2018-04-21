@@ -1,0 +1,9 @@
+{
+  "image_displayer" : {
+    "copy_url": "Copy the following URL and use it in your Streaming application.",
+    "change_folder_button": "Change folder",
+    "no_folder_selected": "No folder selected...",
+    "selected_image":"Selected image",
+    "none":"none"
+  }
+}

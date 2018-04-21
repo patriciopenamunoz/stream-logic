@@ -1,0 +1,9 @@
+{
+  "image_displayer" : {
+    "copy_url": "Copia la siguiente URL y úsala en tu aplicación de Streamings.",
+    "change_folder_button": "Cambiar carpeta",
+    "no_folder_selected": "No hay ninguna carpeta seleccionada...",
+    "selected_image":"Imagen seleccionada",
+    "none":"ninguna"
+  }
+}

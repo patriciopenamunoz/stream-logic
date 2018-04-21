@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stream Logic</title>
+    <style media="screen">
+      html,body,#displayer{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="" id="displayer">
+
+    <script type="text/javascript">
+      var process_counter = -1;
+      function ajaxGet(url) {
+        return new Promise(function(resolve, reject) {
+          let req = new XMLHttpRequest();
+          req.open("GET", url);
+          req.onload = function() {
+            if (req.status === 200) {
+              resolve(req.response);
+            } else {
+              reject(new Error(req.statusText));
+            }
+          };
+          req.onerror = function() {
+            reject(new Error("Network error"));
+          };
+          req.send();
+        });
+      }
+      setInterval(()=>{
+        ajaxGet('properties')
+        .then(JSON.parse)
+        .then((r) =>{
+          if(process_counter != r.process_counter){
+            process_counter = r.process_counter;
+
+            document.getElementById("displayer").src =
+            'media/'+process_counter;
+          }
+        });
+      },300)
+    </script>
+  </body>
+</html>

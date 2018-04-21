@@ -1,0 +1,22 @@
+{
+  "name": "stream-logic",
+  "version": "0.1.0",
+  "description": "Make dynamic content for live streamings easier.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patriciopenamunoz/stream-logic.git"
+  },
+  "author": "Patricio Andrés Peña Muñoz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patriciopenamunoz/stream-logic/issues"
+  },
+  "homepage": "https://github.com/patriciopenamunoz/stream-logic#readme",
+  "dependencies": {
+    "electron": "^1.8.4"
+  }
+}
